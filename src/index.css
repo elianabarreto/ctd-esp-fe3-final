@@ -11,23 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.favButton{
-  background-color: rgba(136, 136, 136, 0.116);
-  padding: 10px;
-  border: none;
-  width: 100%;
-  cursor: pointer;
+
+.App{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
+/* GENERAL */
 
 h1{
   text-align: center;
-}
-
-nav{
-  display: flex;
-  width: 80vw;
-  justify-content: flex-start;
-  padding: 1rem;
 }
 
 a{
@@ -35,30 +29,186 @@ a{
   text-decoration: none;
   margin: 5px;
   cursor: pointer;
+  transition: color 0.2s ease;
 }
+
 a:hover{
-  color: rgb(136, 136, 136);
+  color:  rgb(224, 118, 224);
+  font-weight: 700;
+  border-bottom: 2px solid rgb(224, 118, 224);
 } 
 
-footer {
+/* HEADER */
+
+.nav-container{
+  background-color: #c9ecf1;
   display: flex;
-  justify-content: center;
-  text-align: center;
-  padding: 2rem;
-  position: relative;
-  bottom: 0;
-  width: 90%;
-  height: 40px;
-  margin-top: 2rem;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20vw;
+  position: sticky;
+  top: 0;
 }
 
-footer > img{
-  width: 200px;
-  margin: 0;
+.nav-item-title{
+  justify-content: start;
+  font-size: 1.5rem;
 }
-footer > p{
-  margin: 0;
-  padding-top: 0.7rem;
+
+.nav-item-title span{
+  color: red;
+}
+
+nav{
+  display: flex;
+  padding: 10px 0;
+}
+
+nav button {
+  background-color: black;
+  border-radius: 4px;
+  border: none;
+  height: 30px;
+  width: 30px;
+  margin-left: 8px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.hamburguesa{
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+}
+
+.hamburguesa a:nth-child(2) {
+  margin: 0 25px;
+}
+
+.hamburguesa button{
+  background-color: rgba(0, 0, 255, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#hamburguesaToggle{
+  text-align: right;
+  position: relative;
+  z-index: 1;
+  height: 22px;
+  width: 75px;
+}
+
+#hamburguesaToggle a:hover{
+  color: rgb(224, 118, 224);
+}
+
+#hamburguesaToggle input{
+  display: block;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 49px;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+}
+
+#menu{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  width: 125px;
+  padding: 5px 0px;
+  background-color: #f2f2f2;
+  transform-origin: 0% 0%;
+  transform: translate(0%, -150%);
+  transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+}
+
+#menu a{
+  color: #000000;
+}
+
+#hamburguesaToggle input:checked ~ div{
+  transform: none;
+}
+
+/* HOME */
+
+.card-grid{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  width: 90vw;
+  height: auto;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-bottom: 2rem;
+}
+
+/* CARD */
+
+.card{
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  padding: 0.5rem 0.5rem 0 0.5rem;
+  border: 1.5px solid rgb(136, 136, 136);
+}
+
+.card:hover{
+  border: 2px solid rgb(224, 118, 224);
+}
+
+.card img{
+  width: 100%;
+}
+
+.card a{
+  font-weight: 700;
+}
+
+.favButton{
+  background-color: rgba(136, 136, 136, 0.116);
+  padding: 10px;
+  border: none;
+  width: 100%;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+}
+
+/* DETAILS */
+
+table {
+  border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table;
+    border: 1px solid #ccc;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+td, th {
+  border: 1px solid #ababab;
+  text-align: left;
+  padding: 8px;
+}
+
+/* CONTACT */
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0px;
+  gap: 15px;
+  align-items: center;
 }
 
 form{
@@ -70,53 +220,124 @@ form{
   margin: 0 auto;
 }
 
-.card{
+.contacto{
+  text-align: center;
+}
+
+.mensaje {
+  margin-top: 45px;
+}
+
+/* FOOTER */
+
+footer {
   display: flex;
-  justify-content: space-around;
   flex-direction: column;
-  align-items: center;
-  width: 200px;
-  padding: 0.5rem 0.5rem 0 0.5rem;
-  border: 0.5px solid rgb(136, 136, 136);
+  justify-content: center;
+  margin-top: auto;
 }
 
-.card:hover{
-  border: 0.5px solid rgb(206, 217, 142);
+footer button{
+  background-color: red;
+  color: white;
+  border: none;
+  height: 2rem;
 }
 
-.card-grid{
+footer button:hover{
+  background-color: rgb(235, 31, 31);
+}
+
+footer > div{
   display: flex;
-  justify-content: space-evenly;
-  gap: 1rem;
-  width: 90vw;
-  height: auto;
-  flex-wrap: wrap;
-  margin: 0 auto;
+  justify-content: space-between;
+  padding: 0 20vw;
 }
 
-table {
- border-collapse: collapse;
-    border-spacing: 0;
-    width: 100%;
-    display: table;
-    border: 1px solid #ccc;
-
+footer > * > * > img {
+  width: 200px;
+  margin: 0;
 }
 
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
+.footer-img {
+  display: flex;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+.social-media{
+  display: flex;
+  font-size: 1.5rem;
+  align-items: center;
+  gap: 8px;
 }
+
+.error404{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* DARK THEME */
 
 .dark{
-  background-color: #12121296;
+  background-color: #121212b2;
   color: white;
 }
-.dark > a {
+
+.dark a {
   color: white;
+}
+
+.dark a:hover{
+  color: rgb(224, 118, 224);
+}
+
+.dark .nav-container{
+  background-color: rgb(27, 27, 28);
+}
+
+.dark .links.active{
+  background-color:rgb(27, 27, 28);
+}
+
+.dark * nav button{
+  background-color: white;
+}
+
+.dark #menu{
+  background-color: rgb(27, 27, 28);
+}
+
+.dark #menu a{
+  color: white;
+}
+
+.dark .favButton{
+  background-color: #1515155c;
+}
+
+.dark td{
+  background-color: rgb(60, 60, 61);
+}
+
+.dark .form-container label{
+  color: white;
+}
+
+.dark .form-container input{
+  color: white;
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+@media(min-width: 768px){
+  #hamburguesaToggle{
+    display: none;
+  }
+}
+
+@media(max-width: 767px){
+  .hamburguesa{
+    display: none;
+  }
 }
